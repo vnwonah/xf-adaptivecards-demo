@@ -95,7 +95,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AdaptiveCardsPage.xaml.cs">
+      <DependentUpon>AdaptiveCardsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdaptiveCardsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -141,10 +145,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\AdaptiveCardsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.1.0.446</Version>
+    </PackageReference>
+    <PackageReference Include="AdaptiveCards.Rendering.Uwp">
+      <Version>1.2.11</Version>
     </PackageReference>
     <PackageReference Include="Autofac">
       <Version>5.2.0</Version>
