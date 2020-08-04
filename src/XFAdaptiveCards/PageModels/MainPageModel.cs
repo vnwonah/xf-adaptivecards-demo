@@ -19,7 +19,7 @@ namespace XFAdaptiveCards.PageModels
         {
             ButtonClickedCommand = new Command<AdaptiveCards>(async (cardType) => await ButtonClicked(cardType));
             _adaptiveCardsService = DependencyService.Resolve<IAdaptiveCardsService>();
-            _client = new HttpClient { Timeout = TimeSpan.FromMilliseconds(2) };
+            _client = new HttpClient { Timeout = TimeSpan.FromMinutes(2) };
 
         }
 
@@ -41,7 +41,11 @@ namespace XFAdaptiveCards.PageModels
 
         private async Task<string> GetCardJson(string url)
         {
-            var response = await _client.GetAsync(url);
+            HttpResponseMessage response;
+            using (UserDialogs.Instance.Loading($"Loading Card...", null, null, true, MaskType.Black))
+            {
+                response = await _client.GetAsync(url);
+            }
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();

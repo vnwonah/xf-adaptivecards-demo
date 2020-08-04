@@ -1,4 +1,5 @@
-﻿using XFAdaptiveCards.Interfaces;
+﻿using Android.Content;
+using XFAdaptiveCards.Interfaces;
 
 namespace XFAdaptiveCards.Droid.Services
 {
@@ -6,7 +7,9 @@ namespace XFAdaptiveCards.Droid.Services
     {
         public void DisplayCard(string cardJson)
         {
-            throw new System.NotImplementedException();
+            var intent = new Intent(Android.App.Application.Context, typeof(AdaptiveCardsActivity));
+            intent.AddFlags(ActivityFlags.NewTask);
+            Android.App.Application.Context.StartActivity(intent);
         }
     }
 }
