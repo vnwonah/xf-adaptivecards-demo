@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using UIKit;
 using XFAdaptiveCards.Interfaces;
+using XFAdaptiveCards.iOS.Services;
 using XFAdaptiveCards.Services;
 
 namespace XFAdaptiveCards.iOS
@@ -19,6 +20,7 @@ namespace XFAdaptiveCards.iOS
         void RegisterTypes()
         {
             App.RegisterType<ILogger, Logger>();
+            App.RegisterType<IAdaptiveCardsService, AdaptiveCardsService>();
             App.BuildContainer();
         }
     }
