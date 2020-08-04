@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+﻿using XFAdaptiveCards.Interfaces;
+using XFAdaptiveCards.Services;
 
 namespace XFAdaptiveCards.UWP
 {
@@ -20,8 +8,14 @@ namespace XFAdaptiveCards.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
+            RegisterTypes();
             LoadApplication(new XFAdaptiveCards.App());
+        }
+
+        void RegisterTypes()
+        {
+            XFAdaptiveCards.App.RegisterType<ILogger, Logger>();
+            XFAdaptiveCards.App.BuildContainer();
         }
     }
 }
