@@ -32,7 +32,7 @@ namespace XFAdaptiveCards.PageModels
                     cardJson = await GetCardJson(AppConfig.FLIGHT_ITENERARY_URL);
                     break;
                 case AdaptiveCards.FoodOrder:
-                    cardJson = await GetCardJson(AppConfig.FLIGHT_ITENERARY_URL);
+                    cardJson = await GetCardJson(AppConfig.FOOD_ORDER_URL);
                     break;
             }
             if (!string.IsNullOrWhiteSpace(cardJson))
